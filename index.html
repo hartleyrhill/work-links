@@ -9,14 +9,15 @@
 :root{
   --bg:#0b1020;
   --text:#e6eaf2;
-  --muted:#9aa7c2;
-  --border:rgba(154,167,194,.18);
+  --muted:#a3b1cc;
+  --border:rgba(255,255,255,.18);
 
-  --daily:#0f2a4d;
-  --support:#12345c;
-  --stage:#153d6b;
-  --office:#18477a;
-  --irs:#1b5188;
+  /* DISTINCT SECTION COLORS */
+  --daily:#0b3a6f;      /* Deep cobalt */
+  --support:#0f5c5c;    /* Teal-blue */
+  --stage:#4a4f87;      /* Indigo */
+  --office:#3b4b5e;     /* Blue-gray */
+  --irs:#2e2e3a;        /* Neutral slate */
 }
 
 *{box-sizing:border-box}
@@ -58,16 +59,17 @@ h1{
 }
 
 .section{
-  margin-bottom:12px;
-  border:1px solid var(--border);
+  margin-bottom:14px;
   border-radius:14px;
+  border:1px solid var(--border);
 }
 
 .section h2{
   margin:0;
   padding:10px 12px;
   font-size:13px;
-  border-bottom:1px solid var(--border);
+  font-weight:700;
+  border-bottom:1px solid rgba(255,255,255,.25);
 }
 
 .links{
@@ -81,8 +83,8 @@ a.link{
   display:inline-flex;
   padding:10px 12px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.15);
-  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.12);
   color:var(--text);
   text-decoration:none;
   font-size:12.5px;
@@ -90,7 +92,7 @@ a.link{
 }
 
 a.link:hover{
-  background:rgba(255,255,255,.14);
+  background:rgba(255,255,255,.2);
 }
 
 .note{
@@ -99,7 +101,7 @@ a.link:hover{
   padding:0 12px 10px;
 }
 
-/* SECTION COLORS — VERY INTENTIONAL */
+/* SECTION ASSIGNMENTS */
 .daily   { background:var(--daily); }
 .support { background:var(--support); }
 .stage   { background:var(--stage); }
@@ -154,36 +156,4 @@ a.link:hover{
 <h2>Office Tools</h2>
 <div class="links">
 <a class="link" href="https://www.office.com/launch/word?auth=2" target="_blank">Word</a>
-<a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">OneNote</a>
-<a class="link" href="https://www.office.com/?auth=2" target="_blank">Microsoft Office</a>
-</div>
-</div>
-
-<div class="section irs">
-<h2>IRS</h2>
-<div class="note">Click to open • Right-click to copy link</div>
-<div class="links">
-<a class="link" href="https://www.irs.gov/help/ita" target="_blank">ITA</a>
-<a class="link" href="https://sa.www4.irs.gov/ola/payment_options" target="_blank">IRS Account</a>
-<a class="link" href="https://www.irs.gov/refunds" target="_blank">Where’s My Refund</a>
-<a class="link" href="https://apps.irs.gov/app/understandingTaxes/teacher/hows_mod05.jsp" target="_blank">Filing Status</a>
-<a class="link" href="https://www.irs.gov/help/ita/whom-may-i-claim-as-a-dependent" target="_blank">
-Whom May I Claim as a Dependent
-</a>
-</div>
-</div>
-
-</main>
-
-<script>
-const q=document.getElementById("q");
-q.addEventListener("input",()=>{
-  const v=q.value.toLowerCase();
-  document.querySelectorAll(".link").forEach(l=>{
-    l.style.display=l.textContent.toLowerCase().includes(v)?"":"none";
-  });
-});
-</script>
-
-</body>
-</html>
+<a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">OneNot
