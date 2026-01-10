@@ -1,415 +1,184 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Work Links</title>
-  <style>
-    :root{
-      --bg:#0b1020;
-      --panel:#101a33;
-      --chip:#0f1630;
-      --text:#e6eaf2;
-      --muted:#9aa7c2;
-      --border: rgba(154,167,194,.18);
-      --ring: rgba(96,165,250,.35);
-      --accent:#60a5fa;
-      --radius: 14px;
-    }
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:var(--text);
-      background: radial-gradient(900px 600px at 15% 0%, rgba(96,165,250,.18), transparent 55%),
-                  radial-gradient(900px 600px at 85% 0%, rgba(34,197,94,.12), transparent 55%),
-                  var(--bg);
-    }
+<meta charset="utf-8">
+<title>Work Links</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,16,32,.72);
-      border-bottom: 1px solid var(--border);
-    }
-    .wrap{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 12px 12px;
-    }
-    .top{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:space-between;
-    }
-    .title{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      min-width: 220px;
-    }
-    h1{
-      margin:0;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing:.2px;
-    }
-    .hint{
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .search{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(16,26,51,.65);
-      min-width: 260px;
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
-    }
-    .search input{
-      width:100%;
-      border:0;
-      outline:0;
-      background:transparent;
-      color: var(--text);
-      font-size: 13px;
-    }
-    .btn{
-      cursor:pointer;
-      border:1px solid var(--border);
-      background: rgba(16,26,51,.5);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      user-select:none;
-    }
-    .btn:hover{ border-color: rgba(96,165,250,.5); box-shadow: 0 0 0 4px var(--ring); }
-
-    main .wrap{ padding-top: 10px; padding-bottom: 24px; }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 10px;
-    }
-    .card{
-      grid-column: span 12;
-      border: 1px solid var(--border);
-      background: rgba(16,26,51,.72);
-      border-radius: var(--radius);
-      overflow:hidden;
-    }
-    .card header{
-      position: static;
-      backdrop-filter:none;
-      background: transparent;
-      border: 0;
-    }
-    .cardHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding: 10px 10px 8px;
-      border-bottom: 1px solid rgba(154,167,194,.10);
-    }
-    .cardTitle{
-      display:flex;
-      align-items:baseline;
-      gap:8px;
-      min-width:0;
-    }
-    .cardTitle h2{
-      margin:0;
-      font-size: 13px;
-      font-weight: 750;
-      letter-spacing:.2px;
-      white-space:nowrap;
-    }
-    .count{
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .chips{
-      padding: 10px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      align-items:flex-start;
-    }
-
-    a.chip{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding: 10px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(154,167,194,.16);
-      background: rgba(11,16,32,.35);
-      color: var(--text);
-      text-decoration:none;
-      font-size: 12.5px;
-      font-weight: 650;
-      line-height: 1;
-      transition: transform .06s ease, border-color .2s ease, background .2s ease;
-      white-space:nowrap;
-    }
-    a.chip:hover{
-      transform: translateY(-1px);
-      border-color: rgba(96,165,250,.55);
-      background: rgba(11,16,32,.55);
-    }
-    a.chip .mini{
-      font-size: 11px;
-      color: rgba(96,165,250,.95);
-      background: rgba(96,165,250,.12);
-      border: 1px solid rgba(96,165,250,.22);
-      padding: 4px 7px;
-      border-radius: 999px;
-      font-weight: 750;
-    }
-
-    details{
-      border-top: 1px solid rgba(154,167,194,.10);
-    }
-    summary{
-      list-style:none;
-      cursor:pointer;
-      padding: 10px 10px;
-      color: var(--muted);
-      font-size: 12px;
-      user-select:none;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    summary::-webkit-details-marker{ display:none; }
-    summary:hover{ color: var(--text); }
-
-    @media (min-width: 860px){
-      .card{ grid-column: span 6; }
-      .card.favs{ grid-column: span 12; }
-    }
-  </style>
+<style>
+:root{
+  --bg:#0b1020;
+  --panel:#101a33;
+  --chip:#0f1630;
+  --text:#e6eaf2;
+  --muted:#9aa7c2;
+  --border:rgba(154,167,194,.18);
+  --accent:#60a5fa;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  position:sticky;
+  top:0;
+  background:rgba(11,16,32,.9);
+  border-bottom:1px solid var(--border);
+}
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:12px;
+}
+h1{
+  margin:0;
+  font-size:16px;
+}
+.search{
+  margin-top:8px;
+  display:flex;
+  gap:8px;
+}
+.search input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:#0f1630;
+  color:var(--text);
+  font-size:13px;
+}
+main{padding:14px}
+.section{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  margin-bottom:12px;
+  background:var(--panel);
+}
+.section h2{
+  margin:0;
+  padding:10px 12px;
+  font-size:13px;
+  border-bottom:1px solid var(--border);
+}
+.links{
+  padding:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+a.link{
+  display:inline-flex;
+  align-items:center;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--chip);
+  color:var(--text);
+  text-decoration:none;
+  font-size:12.5px;
+  font-weight:600;
+}
+a.link:hover{
+  border-color:var(--accent);
+}
+.copy-only{
+  cursor:default;
+}
+.copy-only:hover{
+  border-color:var(--border);
+}
+.note{
+  font-size:11px;
+  color:var(--muted);
+  padding:0 12px 10px;
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <div class="wrap">
-      <div class="top">
-        <div class="title">
-          <h1>Work Links</h1>
-          <div class="hint">Tip: press <b>Ctrl+F</b> or use search. Keep your most-used in Favorites (top).</div>
-        </div>
 
-        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-          <div class="search">
-            <span aria-hidden="true">🔎</span>
-            <input id="q" type="search" placeholder="Search… (ex: chat, stage, adp)" />
-          </div>
-          <button class="btn" id="clear" type="button">Clear</button>
-        </div>
-      </div>
+<header>
+  <div class="wrap">
+    <h1>Work Links</h1>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search links…">
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <div class="wrap">
-      <section class="grid" id="grid">
+<main class="wrap">
 
-        <!-- FAVORITES: put your highest-frequency links here, in order -->
-        <div class="card favs" data-section="favorites">
-          <div class="cardHead">
-            <div class="cardTitle">
-              <h2>Favorites</h2>
-              <div class="count"></div>
-            </div>
-          </div>
-          <div class="chips">
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="favorites support tool">
-              Support Tool <span class="mini">F1</span>
-            </a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="favorites chat support">
-              Support Chat <span class="mini">F2</span>
-            </a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="favorites responses support">
-              Common Responses <span class="mini">F3</span>
-            </a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="favorites outlook email">
-              Outlook <span class="mini">F4</span>
-            </a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="favorites dashboard support">
-              Support Dashboard
-            </a>
-          </div>
+<!-- DAILY CORE -->
+<div class="section">
+<h2>Daily Core</h2>
+<div class="links">
+<a class="link" href="https://mobifed.adp.com/oauth/client/v2/8e5b9586368ba157d4ffb44e084828107ab769bd47bc701fe1ead06faa640c4c?run=true&adpwf=true&appid=WFN" target="_blank">ADP (Clock In / Out)</a>
+<a class="link" href="https://support.taxhawk.com/" target="_blank">Support Tool</a>
+<a class="link" href="https://support.taxhawk.com/chat" target="_blank">Support Chat</a>
+<a class="link" href="https://docs.google.com/document/d/1fxkEosJpz94Ll6XG7arHDZqe9PmSh_h-5m0OVz0aT4I/edit" target="_blank">Common Responses</a>
+<a class="link" href="https://outlook.office.com/mail/" target="_blank">Outlook</a>
+</div>
+</div>
 
-          <details>
-            <summary>
-              <span>Less-used favorites (collapse/expand)</span>
-              <span aria-hidden="true">▾</span>
-            </summary>
-            <div class="chips">
-              <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="favorites super support site">
-                Super Support Site
-              </a>
-              <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="favorites payroll adp">
-                ADP
-              </a>
-            </div>
-          </details>
-        </div>
+<!-- SUPPORT / SCHEDULING -->
+<div class="section">
+<h2>Support & Scheduling</h2>
+<div class="links">
+<a class="link" href="https://taxhawk1.sharepoint.com/sites/SuperSupportSite2/SitePages/When-&-Where-to-Escalate.aspx" target="_blank">When & Where to Escalate</a>
+<a class="link" href="https://appx.wheniwork.com/requests/shift" target="_blank">When I Work</a>
+<a class="link" href="https://apps.powerapps.com/play/e/default-be0c8aac-0068-4314-aacf-193449ebd9a4/a/efa39e08-8a59-445c-b57d-f6322263cd5a?tenantId=be0c8aac-0068-4314-aacf-193449ebd9a4" target="_blank">Dashboard</a>
+</div>
+</div>
 
-        <!-- LINKS -->
-        <div class="card" data-section="links">
-          <div class="cardHead">
-            <div class="cardTitle">
-              <h2>Links</h2>
-              <div class="count"></div>
-            </div>
-          </div>
-          <div class="chips">
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="support tool">Support Tool</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="support chat">Support Chat</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="responses">Common Responses</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="outlook email">Outlook</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="support dashboard">Support Dashboard</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="super support">Super Support Site</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="adp payroll">ADP</a>
-          </div>
-        </div>
+<!-- STAGE -->
+<div class="section">
+<h2>Stage / Testing</h2>
+<div class="links">
+<a class="link" href="https://stage.freetaxusa.com/" target="_blank">Stage FreeTaxUSA</a>
+<a class="link" href="https://stagesupport.taxhawk.com/" target="_blank">Stage Support</a>
+<a class="link" href="https://taxhawk1-my.sharepoint.com/:x:/r/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">Test Accounts</a>
+</div>
+</div>
 
-        <!-- STAGE LINKS -->
-        <div class="card" data-section="stage">
-          <div class="cardHead">
-            <div class="cardTitle">
-              <h2>Stage</h2>
-              <div class="count"></div>
-            </div>
-          </div>
+<!-- OFFICE -->
+<div class="section">
+<h2>Office Tools</h2>
+<div class="links">
+<a class="link" href="https://www.office.com/launch/word?auth=2" target="_blank">Word</a>
+<a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">OneNote</a>
+<a class="link" href="https://www.office.com/?auth=2" target="_blank">Microsoft Office</a>
+</div>
+</div>
 
-          <div class="chips">
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage admin">Stage WebAdmin</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage support tool">Stage Support Tool</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage chat">Stage Support Chat</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage links">Stage Links</a>
-          </div>
+<!-- IRS -->
+<div class="section">
+<h2>IRS (Copy Links)</h2>
+<div class="note">Right-click → Copy link (no need to open)</div>
+<div class="links">
+<span class="link copy-only">ITA — https://www.irs.gov/help/ita</span>
+<span class="link copy-only">IRS Account — https://sa.www4.irs.gov/ola/payment_options</span>
+<span class="link copy-only">Where’s My Refund — https://www.irs.gov/refunds</span>
+<span class="link copy-only">Filing Status — https://apps.irs.gov/app/understandingTaxes/teacher/hows_mod05.jsp</span>
+<span class="link copy-only">Whom May I Claim — https://www.irs.gov/help/ita/whom-may-i-claim-as-a-dependent</span>
+</div>
+</div>
 
-          <details>
-            <summary>
-              <span>Stage extras</span>
-              <span aria-hidden="true">▾</span>
-            </summary>
-            <div class="chips">
-              <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage accounts copy">Copy Accounts</a>
-              <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage accounts test">Test Accounts</a>
-              <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage examples test">Test Examples</a>
-            </div>
-          </details>
-        </div>
+</main>
 
-        <!-- 2025 STAGE -->
-        <div class="card" data-section="2025-stage">
-          <div class="cardHead">
-            <div class="cardTitle">
-              <h2>2025 Stage</h2>
-              <div class="count"></div>
-            </div>
-          </div>
-          <div class="chips">
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage 2025 express1040">Express1040</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage 2025 freetaxusa">FreeTaxUSA</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage 2025 taxhawk">TaxHawk</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="stage 2025 webadmin">WebAdmin</a>
-          </div>
-        </div>
+<script>
+const q=document.getElementById("q");
+q.addEventListener("input",()=>{
+  const v=q.value.toLowerCase();
+  document.querySelectorAll(".link").forEach(l=>{
+    l.style.display=l.textContent.toLowerCase().includes(v)?"":"none";
+  });
+});
+</script>
 
-        <!-- PRODUCTION -->
-        <div class="card" data-section="production">
-          <div class="cardHead">
-            <div class="cardTitle">
-              <h2>Production</h2>
-              <div class="count"></div>
-            </div>
-          </div>
-          <div class="chips">
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="prod production taxhawk">TaxHawk</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="prod production freetaxusa">FreeTaxUSA</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="prod production express1040">Express1040</a>
-            <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="prod production webadmin 2025">WebAdmin 2025</a>
-          </div>
-
-          <details>
-            <summary>
-              <span>Older / prior-year</span>
-              <span aria-hidden="true">▾</span>
-            </summary>
-            <div class="chips">
-              <a class="chip" href="#" target="_blank" rel="noreferrer" data-tags="prior year archive">Prior Year Link</a>
-            </div>
-          </details>
-        </div>
-
-      </section>
-    </div>
-  </main>
-
-  <script>
-    const q = document.getElementById("q");
-    const clearBtn = document.getElementById("clear");
-    const cards = Array.from(document.querySelectorAll(".card"));
-    const chips = Array.from(document.querySelectorAll("a.chip"));
-
-    function setCounts(){
-      cards.forEach(card => {
-        const visible = Array.from(card.querySelectorAll("a.chip"))
-          .filter(a => a.style.display !== "none").length;
-        const total = card.querySelectorAll("a.chip").length;
-        const c = card.querySelector(".count");
-        if (c) c.textContent = `${visible}/${total}`;
-      });
-    }
-
-    function apply(){
-      const query = q.value.trim().toLowerCase();
-      chips.forEach(a => {
-        const hay = (a.textContent + " " + (a.dataset.tags || "")).toLowerCase();
-        a.style.display = (!query || hay.includes(query)) ? "" : "none";
-      });
-
-      // Hide cards with no visible chips
-      cards.forEach(card => {
-        const any = Array.from(card.querySelectorAll("a.chip"))
-          .some(a => a.style.display !== "none");
-        card.style.display = any ? "" : "none";
-      });
-
-      setCounts();
-    }
-
-    q.addEventListener("input", apply);
-    clearBtn.addEventListener("click", () => { q.value = ""; q.focus(); apply(); });
-
-    // Optional: quick keyboard focus on "/"
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "/" && document.activeElement !== q) {
-        e.preventDefault();
-        q.focus();
-      }
-    });
-
-    apply();
-  </script>
 </body>
 </html>
