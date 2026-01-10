@@ -47,15 +47,43 @@ h1{
   font-size:16px;
 }
 
+.toprow{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-top:8px;
+  flex-wrap:wrap;
+}
+
+.search{
+  flex: 1 1 260px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
 .search input{
   width:100%;
-  margin-top:8px;
   padding:10px 12px;
   border-radius:999px;
   border:1px solid var(--border);
   background:#0f1630;
   color:var(--text);
   font-size:13px;
+}
+
+button.clear{
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:#0f1630;
+  color:var(--text);
+  font-size:12.5px;
+  font-weight:600;
+  cursor:pointer;
+}
+button.clear:hover{
+  background:rgba(255,255,255,.08);
 }
 
 .section{
@@ -92,7 +120,7 @@ a.link{
 }
 
 a.link:hover{
-  background:rgba(255,255,255,.2);
+  background:rgba(255,255,255,.20);
 }
 
 .note{
@@ -115,8 +143,17 @@ a.link:hover{
 <header>
   <div class="wrap">
     <h1>Work Links</h1>
-    <div class="search">
-      <input id="q" type="search" placeholder="Search links…">
+
+    <div class="toprow">
+      <div class="search">
+        <input id="q" type="search" placeholder="Search links…"
+               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      </div>
+      <button class="clear" id="clear" type="button">Clear</button>
+    </div>
+
+    <div class="note" style="padding:8px 0 0; margin:0;">
+      Tip: press <b>Esc</b> to clear search.
     </div>
   </div>
 </header>
@@ -124,67 +161,101 @@ a.link:hover{
 <main class="wrap">
 
 <div class="section daily">
-<h2>Daily Core</h2>
-<div class="links">
-<a class="link" href="https://mobifed.adp.com/oauth/client/v2/8e5b9586368ba157d4ffb44e084828107ab769bd47bc701fe1ead06faa640c4c?run=true&adpwf=true&appid=WFN" target="_blank">ADP (Clock In / Out)</a>
-<a class="link" href="https://support.taxhawk.com/" target="_blank">Support Tool</a>
-<a class="link" href="https://support.taxhawk.com/chat" target="_blank">Support Chat</a>
-<a class="link" href="https://docs.google.com/document/d/1fxkEosJpz94Ll6XG7arHDZqe9PmSh_h-5m0OVz0aT4I/edit" target="_blank">Common Responses</a>
-<a class="link" href="https://outlook.office.com/mail/" target="_blank">Outlook</a>
-</div>
+  <h2>Daily Core</h2>
+  <div class="links">
+    <a class="link" href="https://mobifed.adp.com/oauth/client/v2/8e5b9586368ba157d4ffb44e084828107ab769bd47bc701fe1ead06faa640c4c?run=true&adpwf=true&appid=WFN" target="_blank" rel="noreferrer">ADP (Clock In / Out)</a>
+    <a class="link" href="https://support.taxhawk.com/" target="_blank" rel="noreferrer">Support Tool</a>
+    <a class="link" href="https://support.taxhawk.com/chat" target="_blank" rel="noreferrer">Support Chat</a>
+    <a class="link" href="https://docs.google.com/document/d/1fxkEosJpz94Ll6XG7arHDZqe9PmSh_h-5m0OVz0aT4I/edit" target="_blank" rel="noreferrer">Common Responses</a>
+    <a class="link" href="https://outlook.office.com/mail/" target="_blank" rel="noreferrer">Outlook</a>
+  </div>
 </div>
 
 <div class="section support">
-<h2>Support & Scheduling</h2>
-<div class="links">
-<a class="link" href="https://taxhawk1.sharepoint.com/sites/SuperSupportSite2/SitePages/When-&-Where-to-Escalate.aspx" target="_blank">When & Where to Escalate</a>
-<a class="link" href="https://appx.wheniwork.com/requests/shift" target="_blank">When I Work</a>
-<a class="link" href="https://apps.powerapps.com/play/e/default-be0c8aac-0068-4314-aacf-193449ebd9a4/a/efa39e08-8a59-445c-b57d-f6322263cd5a?tenantId=be0c8aac-0068-4314-aacf-193449ebd9a4" target="_blank">Dashboard</a>
-</div>
+  <h2>Support & Scheduling</h2>
+  <div class="links">
+    <a class="link" href="https://taxhawk1.sharepoint.com/sites/SuperSupportSite2/SitePages/When-&-Where-to-Escalate.aspx" target="_blank" rel="noreferrer">When & Where to Escalate</a>
+    <a class="link" href="https://appx.wheniwork.com/requests/shift" target="_blank" rel="noreferrer">When I Work</a>
+    <a class="link" href="https://apps.powerapps.com/play/e/default-be0c8aac-0068-4314-aacf-193449ebd9a4/a/efa39e08-8a59-445c-b57d-f6322263cd5a?tenantId=be0c8aac-0068-4314-aacf-193449ebd9a4" target="_blank" rel="noreferrer">Dashboard</a>
+  </div>
 </div>
 
 <div class="section stage">
-<h2>Stage / Testing</h2>
-<div class="links">
-<a class="link" href="https://stage.freetaxusa.com/" target="_blank">Stage FreeTaxUSA</a>
-<a class="link" href="https://stagesupport.taxhawk.com/" target="_blank">Stage Support</a>
-<a class="link" href="https://taxhawk1-my.sharepoint.com/:x:/r/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">Test Accounts</a>
-</div>
+  <h2>Stage / Testing</h2>
+  <div class="links">
+    <a class="link" href="https://stage.freetaxusa.com/" target="_blank" rel="noreferrer">Stage FreeTaxUSA</a>
+    <a class="link" href="https://stagesupport.taxhawk.com/" target="_blank" rel="noreferrer">Stage Support</a>
+    <a class="link" href="https://taxhawk1-my.sharepoint.com/:x:/r/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank" rel="noreferrer">Test Accounts</a>
+  </div>
 </div>
 
 <div class="section office">
-<h2>Office Tools</h2>
-<div class="links">
-<a class="link" href="https://www.office.com/launch/word?auth=2" target="_blank">Word</a>
-<a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">OneNote</a>
-<a class="link" href="https://www.office.com/?auth=2" target="_blank">Microsoft Office</a>
-</div>
+  <h2>Office Tools</h2>
+  <div class="links">
+    <a class="link" href="https://www.office.com/launch/word?auth=2" target="_blank" rel="noreferrer">Word</a>
+    <!-- You provided the same SharePoint Doc.aspx link for OneNote; keeping it as labeled -->
+    <a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank" rel="noreferrer">OneNote</a>
+    <a class="link" href="https://www.office.com/?auth=2" target="_blank" rel="noreferrer">Microsoft Office</a>
+  </div>
 </div>
 
 <div class="section irs">
-<h2>IRS</h2>
-<div class="note">Click to open • Right-click to copy link</div>
-<div class="links">
-<a class="link" href="https://www.irs.gov/help/ita" target="_blank">ITA</a>
-<a class="link" href="https://sa.www4.irs.gov/ola/payment_options" target="_blank">IRS Account</a>
-<a class="link" href="https://www.irs.gov/refunds" target="_blank">Where’s My Refund</a>
-<a class="link" href="https://apps.irs.gov/app/understandingTaxes/teacher/hows_mod05.jsp" target="_blank">Filing Status</a>
-<a class="link" href="https://www.irs.gov/help/ita/whom-may-i-claim-as-a-dependent" target="_blank">
-Whom May I Claim as a Dependent
-</a>
-</div>
+  <h2>IRS</h2>
+  <div class="note">Click to open • Right-click to copy link</div>
+  <div class="links">
+    <a class="link" href="https://www.irs.gov/help/ita" target="_blank" rel="noreferrer">ITA</a>
+    <a class="link" href="https://sa.www4.irs.gov/ola/payment_options" target="_blank" rel="noreferrer">IRS Account</a>
+    <a class="link" href="https://www.irs.gov/refunds" target="_blank" rel="noreferrer">Where’s My Refund</a>
+    <a class="link" href="https://apps.irs.gov/app/understandingTaxes/teacher/hows_mod05.jsp" target="_blank" rel="noreferrer">Filing Status</a>
+    <a class="link" href="https://www.irs.gov/help/ita/whom-may-i-claim-as-a-dependent" target="_blank" rel="noreferrer">Whom May I Claim as a Dependent</a>
+  </div>
 </div>
 
 </main>
 
 <script>
-const q=document.getElementById("q");
-q.addEventListener("input",()=>{
-  const v=q.value.toLowerCase();
-  document.querySelectorAll(".link").forEach(l=>{
-    l.style.display=l.textContent.toLowerCase().includes(v)?"":"none";
+const q = document.getElementById("q");
+const clearBtn = document.getElementById("clear");
+const links = Array.from(document.querySelectorAll("a.link"));
+const sections = Array.from(document.querySelectorAll(".section"));
+
+function applyFilter() {
+  const v = (q.value || "").toLowerCase().trim();
+
+  links.forEach(l => {
+    const show = !v || l.textContent.toLowerCase().includes(v);
+    l.style.display = show ? "" : "none";
   });
+
+  // Hide entire sections if none of their links are visible
+  sections.forEach(sec => {
+    const anyVisible = Array.from(sec.querySelectorAll("a.link"))
+      .some(a => a.style.display !== "none");
+    sec.style.display = anyVisible ? "" : "none";
+  });
+}
+
+function clearSearch() {
+  q.value = "";
+  applyFilter();
+  q.focus();
+}
+
+q.addEventListener("input", applyFilter);
+clearBtn.addEventListener("click", clearSearch);
+
+// Start blank even if the browser tries to remember the field
+window.addEventListener("pageshow", () => {
+  q.value = "";
+  applyFilter();
 });
+
+// Esc clears search
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") clearSearch();
+});
+
+applyFilter();
 </script>
 
 </body>
