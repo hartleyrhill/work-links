@@ -12,12 +12,12 @@
   --muted:#a3b1cc;
   --border:rgba(255,255,255,.18);
 
-  /* DISTINCT SECTION COLORS */
-  --daily:#0b3a6f;      /* Deep cobalt */
-  --support:#0f5c5c;    /* Teal-blue */
-  --stage:#4a4f87;      /* Indigo */
-  --office:#3b4b5e;     /* Blue-gray */
-  --irs:#2e2e3a;        /* Neutral slate */
+  /* DISTINCT SECTION COLORS (easy to spot) */
+  --primary:#0b3a6f;   /* cobalt */
+  --support:#0f5c5c;   /* teal */
+  --stage:#4a4f87;     /* indigo */
+  --office:#3b4b5e;    /* blue-gray */
+  --irs:#2e2e3a;       /* slate */
 }
 
 *{box-sizing:border-box}
@@ -47,47 +47,8 @@ h1{
   font-size:16px;
 }
 
-.toprow{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  margin-top:8px;
-  flex-wrap:wrap;
-}
-
-.search{
-  flex: 1 1 260px;
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-
-.search input{
-  width:100%;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:#0f1630;
-  color:var(--text);
-  font-size:13px;
-}
-
-button.clear{
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:#0f1630;
-  color:var(--text);
-  font-size:12.5px;
-  font-weight:600;
-  cursor:pointer;
-}
-button.clear:hover{
-  background:rgba(255,255,255,.08);
-}
-
 .section{
-  margin-bottom:14px;
+  margin:14px 0;
   border-radius:14px;
   border:1px solid var(--border);
 }
@@ -129,8 +90,8 @@ a.link:hover{
   padding:0 12px 10px;
 }
 
-/* SECTION ASSIGNMENTS */
-.daily   { background:var(--daily); }
+/* Section backgrounds */
+.primary { background:var(--primary); }
 .support { background:var(--support); }
 .stage   { background:var(--stage); }
 .office  { background:var(--office); }
@@ -143,25 +104,13 @@ a.link:hover{
 <header>
   <div class="wrap">
     <h1>Work Links</h1>
-
-    <div class="toprow">
-      <div class="search">
-        <input id="q" type="search" placeholder="Search links…"
-               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-      </div>
-      <button class="clear" id="clear" type="button">Clear</button>
-    </div>
-
-    <div class="note" style="padding:8px 0 0; margin:0;">
-      Tip: press <b>Esc</b> to clear search.
-    </div>
   </div>
 </header>
 
 <main class="wrap">
 
-<div class="section daily">
-  <h2>Essentials</h2>
+<div class="section primary">
+  <h2>Primary Tools</h2>
   <div class="links">
     <a class="link" href="https://mobifed.adp.com/oauth/client/v2/8e5b9586368ba157d4ffb44e084828107ab769bd47bc701fe1ead06faa640c4c?run=true&adpwf=true&appid=WFN" target="_blank" rel="noreferrer">ADP (Clock In / Out)</a>
     <a class="link" href="https://support.taxhawk.com/" target="_blank" rel="noreferrer">Support Tool</a>
@@ -172,7 +121,7 @@ a.link:hover{
 </div>
 
 <div class="section support">
-  <h2>Support Resources</h2>
+  <h2>Support & Scheduling</h2>
   <div class="links">
     <a class="link" href="https://taxhawk1.sharepoint.com/sites/SuperSupportSite2/SitePages/When-&-Where-to-Escalate.aspx" target="_blank" rel="noreferrer">When & Where to Escalate</a>
     <a class="link" href="https://appx.wheniwork.com/requests/shift" target="_blank" rel="noreferrer">When I Work</a>
@@ -181,7 +130,7 @@ a.link:hover{
 </div>
 
 <div class="section stage">
-  <h2>Stage</h2>
+  <h2>Stage / Testing</h2>
   <div class="links">
     <a class="link" href="https://stage.freetaxusa.com/" target="_blank" rel="noreferrer">Stage FreeTaxUSA</a>
     <a class="link" href="https://stagesupport.taxhawk.com/" target="_blank" rel="noreferrer">Stage Support</a>
@@ -190,17 +139,17 @@ a.link:hover{
 </div>
 
 <div class="section office">
-  <h2>Office</h2>
+  <h2>Office Tools</h2>
   <div class="links">
     <a class="link" href="https://www.office.com/launch/word?auth=2" target="_blank" rel="noreferrer">Word</a>
-    <!-- You provided the same SharePoint Doc.aspx link for OneNote; keeping it as labeled -->
     <a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank" rel="noreferrer">OneNote</a>
     <a class="link" href="https://www.office.com/?auth=2" target="_blank" rel="noreferrer">Microsoft Office</a>
   </div>
 </div>
 
 <div class="section irs">
-  <h2>IRS Links</h2>
+  <h2>IRS</h2>
+  <div class="note">Click to open • Right-click to copy link</div>
   <div class="links">
     <a class="link" href="https://www.irs.gov/help/ita" target="_blank" rel="noreferrer">ITA</a>
     <a class="link" href="https://sa.www4.irs.gov/ola/payment_options" target="_blank" rel="noreferrer">IRS Account</a>
@@ -211,51 +160,6 @@ a.link:hover{
 </div>
 
 </main>
-
-<script>
-const q = document.getElementById("q");
-const clearBtn = document.getElementById("clear");
-const links = Array.from(document.querySelectorAll("a.link"));
-const sections = Array.from(document.querySelectorAll(".section"));
-
-function applyFilter() {
-  const v = (q.value || "").toLowerCase().trim();
-
-  links.forEach(l => {
-    const show = !v || l.textContent.toLowerCase().includes(v);
-    l.style.display = show ? "" : "none";
-  });
-
-  // Hide entire sections if none of their links are visible
-  sections.forEach(sec => {
-    const anyVisible = Array.from(sec.querySelectorAll("a.link"))
-      .some(a => a.style.display !== "none");
-    sec.style.display = anyVisible ? "" : "none";
-  });
-}
-
-function clearSearch() {
-  q.value = "";
-  applyFilter();
-  q.focus();
-}
-
-q.addEventListener("input", applyFilter);
-clearBtn.addEventListener("click", clearSearch);
-
-// Start blank even if the browser tries to remember the field
-window.addEventListener("pageshow", () => {
-  q.value = "";
-  applyFilter();
-});
-
-// Esc clears search
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") clearSearch();
-});
-
-applyFilter();
-</script>
 
 </body>
 </html>
