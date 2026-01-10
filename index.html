@@ -156,4 +156,36 @@ a.link:hover{
 <h2>Office Tools</h2>
 <div class="links">
 <a class="link" href="https://www.office.com/launch/word?auth=2" target="_blank">Word</a>
-<a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">OneNot
+<a class="link" href="https://taxhawk1-my.sharepoint.com/personal/hbrinkerhoff_taxhawk_com/_layouts/15/Doc.aspx" target="_blank">OneNote</a>
+<a class="link" href="https://www.office.com/?auth=2" target="_blank">Microsoft Office</a>
+</div>
+</div>
+
+<div class="section irs">
+<h2>IRS</h2>
+<div class="note">Click to open • Right-click to copy link</div>
+<div class="links">
+<a class="link" href="https://www.irs.gov/help/ita" target="_blank">ITA</a>
+<a class="link" href="https://sa.www4.irs.gov/ola/payment_options" target="_blank">IRS Account</a>
+<a class="link" href="https://www.irs.gov/refunds" target="_blank">Where’s My Refund</a>
+<a class="link" href="https://apps.irs.gov/app/understandingTaxes/teacher/hows_mod05.jsp" target="_blank">Filing Status</a>
+<a class="link" href="https://www.irs.gov/help/ita/whom-may-i-claim-as-a-dependent" target="_blank">
+Whom May I Claim as a Dependent
+</a>
+</div>
+</div>
+
+</main>
+
+<script>
+const q=document.getElementById("q");
+q.addEventListener("input",()=>{
+  const v=q.value.toLowerCase();
+  document.querySelectorAll(".link").forEach(l=>{
+    l.style.display=l.textContent.toLowerCase().includes(v)?"":"none";
+  });
+});
+</script>
+
+</body>
+</html>
