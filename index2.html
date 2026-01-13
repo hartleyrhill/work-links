@@ -1,1 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Taxhawk Links</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<style>
+:root{
+  --bg:#0b1020;
+  --text:#e6eaf2;
+  --muted:#a3b1cc;
+  --border:rgba(255,255,255,.18);
+
+  /* LIGHTER DISTINCT SECTION COLORS (same layout, brighter blues) */
+  --essentials:#1a4f8a; /* brighter cobalt */
+  --support:#1a7876;    /* brighter teal */
+  --stage:#6669b3;      /* brighter indigo */
+  --office:#56708a;     /* brighter blue-gray */
+  --irs:#3a3a4a;        /* lighter slate */
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  position:sticky;
+  top:0;
+  background:#0b1020;
+  border-bottom:1px solid var(--border);
+}
+
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:12px;
+}
+
+h1{
+  margin:0;
+  font-size:16px;
+}
+
+.section{
+  margin:14px 0;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+.section h2{
+  margin:0;
+  padding:10px 12px;
+  font-size:13px;
+  font-weight:700;
+  border-bottom:1px solid rgba(255,255,255,.25);
+}
+
+.links{
+  padding:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+a.link{
+  display:inline-flex;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.12);
+  color:var(--text);
+  text-decoration:none;
+  font-size:12.5px;
+  font-weight:600;
+}
+
+a.link:hover{
+  background:rgba(255,255,255,.20);
+}
+
+.note{
+  font-size:11px;
+  color:var(--muted);
+  padding:0 12px 10px;
+}
+
+/* Section backgrounds */
+.essentials { background:var(--essentials); }
+.support    { background:var(--support); }
+.stage      { background:var(--stage); }
+.office     { background:var(--office); }
+.irs        { background:var(--irs); }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Taxhawk Links</h1>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="section essentials">
+  <h2>Essentials</h2>
+  <div class="links">
+    <a class="link" href="https://mobifed.adp.com/oauth/client/v2/8e5b9586368ba157d4ffb44e084828107ab769bd47bc701fe1ead06faa640c4c?run=true&adpwf=true&appid=WFN" target="_blank" rel="noreferrer">ADP (Clock In / Out)</a>
+    <a class="link" href="https://support.taxhawk.com/" target="_blank" rel="noreferrer">Support Tool</a>
+    <a class="link" href="https://support.taxhawk.com/chat" target="_blank" rel="noreferrer">Support Chat</a>
+    <a class="link" href="https://taxhawk1-my.sharepoint.com/personal/jlamont_taxhawk_com/_layouts/15/Doc.aspx88ce8dd0fb72%2F%29&wdorigin=NavigationUrl" target="_blank" rel="noreferrer">Responses to Customers</a>
+    <a class="link" href="https://outlook.office.com/mail/" target="_blank" rel="noreferrer">Outlook</a>
+  </div>
+</div>
+
+<div class="section support">
+  <h2>Support Resources</h2>
+  <div class="links">
+    <a class="link" href="https://taxhawk1.sharepoint.com/sites/SuperSupportSite2" target="_blank" rel="noreferrer">Super Support Site</a>
+    <a class="link" href="https://taxhawk1.sharepoint.com/sites/SuperSupportSite2/SitePages/When-&-Where-to-Escalate.aspx" target="_blank" rel="noreferrer">When &amp; Where to Escalate</a>
+    <a class="link" href="https://appx.wheniwork.com/requests/shift" target="_blank" rel="noreferrer">When I Work</a>
+    <a class="link" href="https://apps.powerapps.com/play/e/default-be0c8aac-0068-4314-aacf-193449ebd9a4/a/efa39e08-8a59-445c-b57d-f6322263cd5a?tenantId=be0c8aac-0068-4314-aacf-193449ebd9a4" target="_blank" rel="noreferrer">Dashboard</a>
+  </div>
+</div>
+
+<div class="section stage">
+  <h2>Stage</h2>
+  <div class="links">
+    <a class="link" href="https://stage.freetaxusa.com/" target="_blank" rel="noreferrer">Stage FreeTaxUSA</a>
+    <a class="link" href="https://stagesupport.taxhawk.com/" target="_blank" rel="noreferrer">Stage Support</a>
+    <a class="link" href="https://taxhawk1-my.sharepoint.com/:x:/r/personal/jlamont_taxhawk_com/Documents/Test%20Accounts.xlsx" target="_blank" rel="noreferrer">Test Accounts</a>
+  </div>
+</div>
+
+<div class="section office">
+  <h2>Office Tools</h2>
+  <div class="links">
+    <a class="link" href="https://www.office.com/launch/word?auth=2" target="_blank" rel="noreferrer">Word</a>
+    <a class="link" href="https://taxhawk1-my.sharepoint.com/personal/jlamont_taxhawk_com/_layouts/15/Doc.aspx" target="_blank" rel="noreferrer">OneNote</a>
+    <a class="link" href="https://www.office.com/?auth=2" target="_blank" rel="noreferrer">Microsoft Office</a>
+  </div>
+</div>
+
+<div class="section irs">
+  <h2>IRS Links</h2>
+  <div class="note">Click to open • Right-click to copy link</div>
+  <div class="links">
+    <a class="link" href="https://www.irs.gov/help/ita" target="_blank" rel="noreferrer">ITA</a>
+    <a class="link" href="https://sa.www4.irs.gov/ola/payment_options" target="_blank" rel="noreferrer">IRS Account</a>
+    <a class="link" href="https://www.irs.gov/refunds" target="_blank" rel="noreferrer">Where’s My Refund</a>
+    <a class="link" href="https://apps.irs.gov/app/understandingTaxes/teacher/hows_mod05.jsp" target="_blank" rel="noreferrer">Filing Status</a>
+    <a class="link" href="https://www.irs.gov/help/ita/whom-may-i-claim-as-a-dependent" target="_blank" rel="noreferrer">Whom May I Claim as a Dependent</a>
+  </div>
+</div>
+
+</main>
+
+</body>
+</html>
